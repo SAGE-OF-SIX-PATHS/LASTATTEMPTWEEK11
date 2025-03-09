@@ -12,6 +12,11 @@ const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/notesdb';
 // Middleware
 app.use(express.json());
 
+// Root route
+app.get('/', (req, res) => {
+          res.send('Welcome to the Note-Taking API! Visit /api/notes to interact with the API.');
+});
+
 // Routes
 app.use('/api/notes', noteRoutes);
 
@@ -22,5 +27,5 @@ mongoose.connect(MONGO_URI)
 
 // Start the server
 app.listen(PORT, () => {
-          console.log(`[server]: Server is running at http://SAGEOFSIXPATH'SHOST:${PORT}`);
+          console.log(`[server]: Server is running at http://localhost:${PORT}`);
 });
